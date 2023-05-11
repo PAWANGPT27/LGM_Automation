@@ -223,6 +223,11 @@ public class BasePageObject {
 		action.click(find(locator)).perform();
 		
 	}
+	protected void Close(By locator) {
+		Actions action = new Actions(driver);
+		action.click(find(locator)).perform();
+		
+	}
 	
 	
 }

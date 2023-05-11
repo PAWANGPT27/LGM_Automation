@@ -130,6 +130,7 @@ public class AddJobPage extends BasePageObject {
 		scrollToBottom();
 		//selectFirstOption();
 		 SelectByAction(reviews);
+		 Close(reviews);
 		 try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {

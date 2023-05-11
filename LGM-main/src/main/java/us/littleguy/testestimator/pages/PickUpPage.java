@@ -64,6 +64,8 @@ public class PickUpPage extends BasePageObject {
 	private By ReviewBtn = By.xpath("//*[@id=\"root\"]/div/div/div/div/div[3]/div[2]/div/div[3]/button");
 	private By Pricing = By.xpath("/html/body/div[1]/div/div/div/div/div[3]/div[1]/h3[1]");
 	private By Clickemail = By.xpath("/html/body/div[1]/div/div/div/div/div[3]/div[2]/div/div[1]/nav/ul/li[5]/span");
+	private By findNearest = By.xpath("//*[text()='Find Nearest Store']");
+	private By HasElevator = By.xpath("//*[text()='Has Elevator']");
 	public PickUpPage(WebDriver driver, Logger log)  {
 		super(driver, log);
 		// TODO Auto-generated constructor stub
@@ -76,6 +78,7 @@ public class PickUpPage extends BasePageObject {
 	public void TypeDetails(String Address ,String RoomName)
 	{
 		type(Address , AddressName);
+		SelectByAction(HasElevator);
 		type(RoomName , Roomname);
 		
 	}
@@ -100,6 +103,7 @@ public class PickUpPage extends BasePageObject {
 		WebElement dropdownElement6 = find(Roomfloor);
 		sel = new Select(dropdownElement6);
 		sel.selectByIndex(1);
+		click(findNearest);
 		
 		
 		
