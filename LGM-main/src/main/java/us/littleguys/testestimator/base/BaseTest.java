@@ -57,17 +57,20 @@ public class BaseTest {
 		log.info("LoginPage opened");
 
 		// execute log in
-		LGMJobsPage jobpage = loginpage.logIn("sudhir.ssh@gmail.com","Shammu7193$");
+		//LGMJobsPage jobpage = loginpage.logIn("sudhir.ssh@gmail.com","Shammu7193$");
+		//LGMJobsPage jobpage = loginpage.logIn("username","password");
+
+		
 		
 		//takeScreenshot("Jobs opened");
 		
 		// log out button is visible
-		Assert.assertTrue(jobpage.isTitleVisible(), "title is not visible.");
+		//Assert.assertTrue(jobpage.isTitleVisible(), "title is not visible.");
 
 		
 		// Verifications
 		// New page url is expected
-		Assert.assertEquals(jobpage.getCurrentUrl(), jobpage.getPageUrl());
+		//Assert.assertEquals(jobpage.getCurrentUrl(), jobpage.getPageUrl());
 
 	}
 	

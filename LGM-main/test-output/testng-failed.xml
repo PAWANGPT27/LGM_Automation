@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="us.littleguys.testestimator.AddJob.AddJob">
+      <class name="us.littleguys.testestimator.Loginpagetests.NegativeLoginTest">
         <methods>
-          <include name="AddJobs" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="negativeloginTest" invocation-numbers="0 1 2"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- us.littleguys.testestimator.AddJob.AddJob -->
+      </class> <!-- us.littleguys.testestimator.Loginpagetests.NegativeLoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

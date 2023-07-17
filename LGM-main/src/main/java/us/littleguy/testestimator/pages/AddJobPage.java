@@ -177,6 +177,8 @@ public class AddJobPage extends BasePageObject {
 				{
 			 type(orgName,orgnizationName);
 				}
+		else 
+			System.out.print("Not required");
 		
 	}
 	

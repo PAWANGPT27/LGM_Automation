@@ -21,6 +21,7 @@ public class PickUpPage extends BasePageObject {
 	private By WalkDistance = By.id("walkDistance");
 	private By State = By.name("state");
 	private By City = By.name("city");
+	private By zipcode = By.name("zipcode");
 	private By Miles = By.name("miles");
 	private By Roomname= By.id("room-name");
 	private By Roomfloor= By.id("room-floor");
@@ -65,7 +66,10 @@ public class PickUpPage extends BasePageObject {
 	private By Pricing = By.xpath("/html/body/div[1]/div/div/div/div/div[3]/div[1]/h3[1]");
 	private By Clickemail = By.xpath("/html/body/div[1]/div/div/div/div/div[3]/div[2]/div/div[1]/nav/ul/li[5]/span");
 	private By findNearest = By.xpath("//*[text()='Find Nearest Store']");
-	private By HasElevator = By.xpath("//*[text()='Has Elevator']");
+	private By HasElevator = By.name("hasElevator");
+	private By dorpfloor = By.name("doFloor");
+	private By dorpAddress = By.name("doAddress");
+	private By addroom = By.xpath("//*[@class='room-nav']/i");
 	public PickUpPage(WebDriver driver, Logger log)  {
 		super(driver, log);
 		// TODO Auto-generated constructor stub
@@ -74,12 +78,14 @@ public class PickUpPage extends BasePageObject {
 	public void ClickOnPickUp()
 	{
 		click(Pickup1);
-	}
-	public void TypeDetails(String Address ,String RoomName)
+	} 
+	public void TypeDetails(String Address ,String RoomName, String ZipCode)
 	{
 		type(Address , AddressName);
 		SelectByAction(HasElevator);
+		type(ZipCode,zipcode);
 		type(RoomName , Roomname);
+		
 		
 	}
 	
@@ -103,7 +109,13 @@ public class PickUpPage extends BasePageObject {
 		WebElement dropdownElement6 = find(Roomfloor);
 		sel = new Select(dropdownElement6);
 		sel.selectByIndex(1);
-		click(findNearest);
+		WebElement dropdownElement7 = find(dorpfloor);
+		sel = new Select(dropdownElement7);
+		sel.selectByIndex(2);
+		WebElement dropdownElement8 = find(dorpAddress);
+		sel = new Select(dropdownElement8);
+		sel.selectByIndex(1);
+		//click(findNearest);
 		
 		
 		
@@ -123,6 +135,7 @@ public class PickUpPage extends BasePageObject {
 		click(AddPackingBox);
 		Thread.sleep(5000);
 		click(AddNewRoom);
+		click(addroom);
 		Thread.sleep(5000);
 		//scrollbyVisibleElement(DeleteRoom);
 		click(DeleteRoom);
@@ -265,5 +278,11 @@ public class PickUpPage extends BasePageObject {
 	{
 		click(Clickemail);
 	}
+	/*public void SelectpickUpFloor() {
+		WebElement dropdownElement1 = find(pickfloor);
+		Select sel = new Select(dropdownElement1);
+		sel.selectByIndex(2);
+		
+	}*/
 
 }

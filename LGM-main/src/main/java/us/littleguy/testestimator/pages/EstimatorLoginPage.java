@@ -1,4 +1,6 @@
 package us.littleguy.testestimator.pages;
+import java.time.Duration;
+
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +14,7 @@ public class EstimatorLoginPage extends BasePageObject  {
 			private By Getcaptcha = By.id("generated-captcha");
 			private By EnterCaptcha = By.id("entered-captcha");
 			private By logInButtonLocator = By.cssSelector("button[title='Sign In']");
+            private By pageText = By.xpath("//*[text()='Sign in to continue.']");
 			
 			public EstimatorLoginPage(WebDriver driver, Logger log) {
 				super(driver,log);
@@ -39,6 +42,18 @@ public class EstimatorLoginPage extends BasePageObject  {
 				log.info("Page opened!");
 				
 			}
+			public String getPageText() {
+				log.info("Login page varification start");
+				waitForVisibilityOf(pageText,Duration.ofSeconds(10));
+				return driver.findElement(pageText).getText();
+			}
+			
+			public void InvalidCaptch() {
+				log.info("Login with invalid cptach");
+				 driver.findElement(By.id("EnterCaptcha")).sendKeys("uek8i");
+			}
+			
+			
 
 		}
 

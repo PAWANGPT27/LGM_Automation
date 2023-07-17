@@ -34,20 +34,19 @@ import us.littleguy.testestimator.pages.TruckPage;
 
 public class AddJob extends TestUtilities  {
 	
-	
 	@Test(dataProvider = "csvReader" , dataProviderClass= CsvDataProviders.class)
 	
 	//@Parameters({ "firstname" ,"lastname", "PhoneNo", "email" ,"Address" ,"RoomName" ,"i","item1","item2","point"  ,"DropAddress" ,"Subject","emailA" })
 	public void AddJobs(Map<String, String> readdata) throws Exception {
 		
 		LGMJobsPage jobpage = new LGMJobsPage(driver, log);
-		sleep(8000);
+		sleep(12000);
 		AddJobPage addjob = jobpage.createjob();
-		sleep(10000);
+		sleep(14000);
 	
 		// Verifications
 		// New page url is expected
-		Assert.assertEquals(addjob.getCurrentUrl(), addjob.getPageUrl());
+		Assert.assertEquals(addjob.getCurrentUrl(), addjob.getPageUrl());  
 		String firstname = readdata.get("firstname");
 		String lastname = readdata.get("lastname");
 		String PhoneNo = readdata.get("PhoneNo");
@@ -70,9 +69,9 @@ public class AddJob extends TestUtilities  {
 		if(t > 0) {
            
 		System.out.println("Customer not exists");
-		sleep(5000);
+		sleep(10000);
 		Assert.assertTrue(addjob.isNotFoundCustomerMsgDisplayed(), "Customer is available");
-		sleep(5000);
+		sleep(10000);
 		addjob.ClickOnSave();
 		sleep(2000);
 		
@@ -91,7 +90,8 @@ public class AddJob extends TestUtilities  {
 		sleep(2000);
 		String Address = readdata.get("Address");
 		String RoomName = readdata.get("RoomName");
-		pickup.TypeDetails(Address ,RoomName);
+		String ZipCode = readdata.get("ZipCode");
+		pickup.TypeDetails(Address ,RoomName,ZipCode);
 		sleep(2500);
 		pickup.SelectFromList();
 		sleep(20000);

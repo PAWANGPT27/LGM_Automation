@@ -51,6 +51,11 @@ public class LGMJobsPage extends BasePageObject {
 		return find(Popuptitle).isDisplayed();
 	}
 	
+	public boolean isTextVisible() {
+		waitForVisibilityOf(Popuptitle,Duration.ofSeconds(10));
+		return find(Popuptitle).isDisplayed();
+	}
+	
 	public boolean isTitleVisible() {
 		waitForVisibilityOf(title,Duration.ofSeconds(10));
 		return find(title).isDisplayed();
