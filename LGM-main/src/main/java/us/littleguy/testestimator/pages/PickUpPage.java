@@ -69,7 +69,7 @@ public class PickUpPage extends BasePageObject {
 	private By HasElevator = By.name("hasElevator");
 	private By dorpfloor = By.name("doFloor");
 	private By dorpAddress = By.name("doAddress");
-	private By addroom = By.xpath("//*[@class='room-nav']/i");
+	private By addroom = By.xpath("//*[@class='room-nav']/i[@title='Add Room']");
 	public PickUpPage(WebDriver driver, Logger log)  {
 		super(driver, log);
 		// TODO Auto-generated constructor stub
@@ -135,6 +135,8 @@ public class PickUpPage extends BasePageObject {
 		click(AddPackingBox);
 		Thread.sleep(5000);
 		click(AddNewRoom);
+		
+		//Add new room click on "+" icon 
 		click(addroom);
 		Thread.sleep(5000);
 		//scrollbyVisibleElement(DeleteRoom);

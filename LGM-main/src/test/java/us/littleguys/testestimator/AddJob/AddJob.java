@@ -42,7 +42,7 @@ public class AddJob extends TestUtilities  {
 		LGMJobsPage jobpage = new LGMJobsPage(driver, log);
 		sleep(12000);
 		AddJobPage addjob = jobpage.createjob();
-		sleep(14000);
+		sleep(16000);
 	
 		// Verifications
 		// New page url is expected
